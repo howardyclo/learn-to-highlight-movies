@@ -15,7 +15,7 @@
 - 最後存入 `processed-data/<movie_name>.json`。
 
 ### `split.py`
-負責把某部電影經過 `preprocess.js` 處理好的彈幕，也就是 `processed-data/<電影名稱>.json`，將相同標籤的彈幕分離出來，並且將一段時間之內的相同標籤的彈幕全部串成同一列，全部寫進 `processed-data/<movie_name>_<label>.txt`。
+負責把某部電影經過 `preprocess.js` 處理好的彈幕，也就是 `processed-data/<movie_name>.json`，依照指定的時間間隔（30秒）切割為數個片段，將每個片段中的所有彈幕串成同一列（視為一個 document），片段中若包含任一條 `class` 為 `POS` 的彈幕，則將其寫入 `processed-data/<movie_name>_POS.txt`，反之則寫入 `processed-data/<movie_name>_NEG.txt`。
 
 ### `merge.py`
 負責將資料處理成訓練詞向量與機器學習模型所需的輸入格式，將所有 `<movie_name>_<label>.txt` 順序打亂後，寫進 `all_POS.txt`, `all_NEG.txt`, `train_POS.txt`, `train_POS.txt`, `test_POS.txt`, `test_POS.txt`。除此之外，還將低頻詞都標準化成 `UNK`，以提升詞向量的品質。
