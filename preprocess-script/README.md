@@ -27,4 +27,4 @@
 
 在 `package.json` 中可以自定義 `npm` 指令，`npm` 可以自行定義簡單的指令，取代一大串指令，讓我能夠節省在終端機手動輸入參數的時間，例如，如果有十部電影要處理，就要手動執行十次，但是如果使用 `npm`，你只要在終端機輸入 `npm start`，就會依序執行 `preprocess.js`, `split.py`, `merge.py`，把所有放在`../data/<movie_name>.json` 及其對應的 `../label/<movie_name>.txt` 都處理好。
 
-註：如果有新電影的彈幕 `<movie_name>.json` 放到 `../data/` 中，請在 `package.json` 中的 `preprocess` 指令在累加 `&& node preprocess.js -f <movie_name>.json`。
+註：如果有新電影的彈幕 `<movie_name>.json` 放到 `../data/` 中，請在 `package.json` 中的 `preprocess` 指令後面累加 `&& node preprocess.js -f <movie_name>.json`。
