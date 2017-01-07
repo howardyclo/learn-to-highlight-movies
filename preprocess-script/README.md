@@ -16,7 +16,7 @@
 負責把某部電影經過 `preprocess.js` 處理好的彈幕，也就是 `processed-data/<電影名稱>.json`，將相同標籤的彈幕分離出來，並且將一段時間之內的相同標籤的彈幕全部串成同一列，全部寫進 `processed-data/<movie_name>_<label>.txt`。
 
 ### `merge.py`
-負責將資料處理成訓練詞向量與機器學習模型所需的輸入格式，將所有 `<movie_name>_<label>.txt` 順序打亂後，寫進 `all_POS.txt`, `all_NEG.txt`, `train_POS.txt`, `train_POS.txt`, `test_POS.txt`, `test_POS.txt`。
+負責將資料處理成訓練詞向量與機器學習模型所需的輸入格式，將所有 `<movie_name>_<label>.txt` 順序打亂後，寫進 `all_POS.txt`, `all_NEG.txt`, `train_POS.txt`, `train_POS.txt`, `test_POS.txt`, `test_POS.txt`。除此之外，還將低頻詞都標準化成 `UNK`，以提升詞向量的品質。
 
 ## 如何跑程式
 我們利用 `npm (nodejs package manager)` 來自動化整個資料處理的 pipeline，因此你需要先安裝好 `nodejs` 與 `npm`。本程式使用 `node v6.2.2` 與 `npm 3.9.5` 版本，同常在安裝新版的 `nodejs` 會連同 `npm` 一起幫你安裝好。
