@@ -1,0 +1,21 @@
+{
+  "name": "data-preprocess",
+  "version": "1.0.0",
+  "description": "data preprocessing such as sorting danmu, labeling danmu, etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run preprocess && npm run split && npm run merge",
+    "preprocess": "node preprocess.js -f 九品芝麻官.json && node preprocess.js -f 唐伯虎點秋香.json && node preprocess.js -f 喜劇之王.json && node preprocess.js -f 國產凌凌漆.json && node preprocess.js -f 少林足球.json && node preprocess.js -f 整人專家.json && node preprocess.js -f 破壞之王.json && node preprocess.js -f 賭俠.json && node preprocess.js -f 逃學威龍1.json && node preprocess.js -f 逃學威龍2.json && node preprocess.js -f 逃學威龍3.json && node preprocess.js -f 食神.json",
+    "split": "python3 split.py 九品芝麻官.json && python3 split.py 唐伯虎點秋香.json && python3 split.py 喜劇之王.json && python3 split.py 國產凌凌漆.json && python3 split.py 少林足球.json && python3 split.py 整人專家.json && python3 split.py 破壞之王.json && python3 split.py 賭俠.json && python3 split.py 逃學威龍1.json && python3 split.py 逃學威龍2.json && python3 split.py 逃學威龍3.json && python3 split.py 食神.json",
+    "merge": "python merge.py"
+  },
+  "author": "YuChun Lo",
+  "license": "MIT",
+  "dependencies": {
+    "jsonfile": "^2.4.0",
+    "moment": "^2.17.1",
+    "nodejieba": "^2.2.4",
+    "yargs": "^6.6.0"
+  }
+}
