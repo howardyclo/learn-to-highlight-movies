@@ -84,6 +84,13 @@ def predict(filename, preprocess_script_dirname='./preprocess-script/', processe
     # 處理完資料，接下來就是要把 document 的內容轉成 vector 後，丟到 classifer 判斷是不是經典橋段
     document = toClips('{}{}'.format(processed_data_dirname, filename))
 
+    # 把 clipped 過的資料 (每個row: <time> <document>) 存起來給別的 model 用
+    fout = open('{}time-document-{}'.format(args.processed_data_dirname, filename.replace('json', 'txt')), 'w')
+    for time, doc in sorted(document.items()):
+        fout.write('{}\t{}\n'.format(time, doc.encode('utf8')))
+    print 'Clipped {} to time-document format. Save to {}time-document-{}.'.format(filename, args.processed_data_dirname, filename)
+    fout.close()
+
     # 預測經典橋段的時間
     highlight_time_ranges = []
     for time, doc in sorted(document.items()):
