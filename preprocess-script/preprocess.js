@@ -33,13 +33,11 @@ function prepareToProcess(filename) {
   fs.readFile(labelpath, 'utf8', function(err, labelText) {
 
     // handle error
-    if (err) {
-      console.log('Error. Missing corresponding label data: "' + labelpath + '"');
-      return;
-    }
+    if (err)
+      console.log('No corresponding label data: "' + labelpath + '", ignore labeling.');
 
     // process label text file
-    var highlightTimeRanges = processlabelText(labelText);
+    var highlightTimeRanges = (!err) ? processlabelText(labelText) : null
 
     // process and label data.
     console.log('Processing "' + filepath + '"...');
@@ -77,7 +75,8 @@ function process(json, highlightTimeRanges) {
     delete comment.sendtime;
 
     // label comment
-    comment.class = isTimeInRanges(comment.time, highlightTimeRanges) ? 'POS' : 'NEG';
+    if (highlightTimeRanges)
+      comment.class = isTimeInRanges(comment.time, highlightTimeRanges) ? 'POS' : 'NEG';
 
     // covert time(second) to 'hh:mm:ss', and assign to new property 'timestamp' (for debug-friendly)
     comment.timestamp = secondTohhmmss(comment.time);
