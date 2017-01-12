@@ -1,0 +1,3 @@
+# HTTP Cookie File for domains related to bilibili.com.
+# Example:  wget -x --load-cookies cookies.txt http://www.bilibili.com/
+#

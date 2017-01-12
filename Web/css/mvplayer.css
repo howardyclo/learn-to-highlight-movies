@@ -1,0 +1,29 @@
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+body {
+  padding-top: 100px;
+  background-image: url(../img/intro-bg.jpg);
+  background-size:100%;
+  background-attachment:fixed;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.mastfoot {
+  color: rgba(255,255,255,.5);
+  color: #999;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+h1{color: #fff;text-shadow: 0 1px 3px rgba(0,0,0,.5);}
+
+.navbar-nav > li > .dropdown-menu { background-color: #222222; }
+.navbar-nav > li > .dropdown-menu a{ color: #9d9d9d; }
+
+.post{ margin: 20 0px;}
+
+h2,h3,h4,h5{color: #9d9d9d;text-shadow: 0 1px 3px rgba(0,0,0,.5);}
