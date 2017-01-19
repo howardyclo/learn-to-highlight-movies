@@ -10,7 +10,7 @@ Learn-to-Highlight-Movies is a **movie highlights retrieval** project that uses 
 
 ## Problem Definition and Methods
 
-Unlike the other image or speech based approaches, we mainly formalize our movie highlights retrieval task as a **document classification** problem. Each document represents all comments appeared within a movie clip of fixed time interval. We classify if the document is **POS** (highlights) or **NEG** (non-highlights) in a **supervised learning** manner.
+Unlike the other image or speech based approaches, we mainly formalize our movie highlights retrieval task as a **document classification** problem. Each document represents all comments within a movie clip of a fixed length of time interval. We classify if the document is **POS** (highlights) or **NEG** (non-highlights) in a **supervised learning** manner.
 
 We also explore the other two methods for comparing the performances and discuss their pros and cons in the end of the article, so here we'll focus on these three methods:
 - **Count-based**
