@@ -1,6 +1,6 @@
 # [Learn to Highlight Movies](https://signxer.xyz/bilibili/)
 
-(Under Contruction)
+(Under Construction)
 
 **Keywords**: `video shots retrieval`, `document classification`, `TF-IDF (solr)`, `word embeddings (Word2Vec)`, `document embeddings (Doc2Vec)`, `neural network (keras)`
 
