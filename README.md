@@ -1,6 +1,8 @@
 # [Learn to Highlight Movies](https://signxer.xyz/bilibili/)
 
-**Keywords**: `video shots retrieval`, `document classification`, `TF-IDF (solr)`, `word embeddings (Word2Vec)`, `document embeddings (Word2Vec)`, `neural network (keras)`
+(Under Contruction)
+
+**Keywords**: `video shots retrieval`, `document classification`, `TF-IDF (solr)`, `word embeddings (Word2Vec)`, `document embeddings (Doc2Vec)`, `neural network (keras)`
 
 Learn-to-Highlight-Movies is a **movie highlights retrieval** project that uses several approaches to automatically highlight movies from [bilibili](https://www.bilibili.com/), which is one of the largest video sharing platforms in China with time-sync comments, also known as **bullet screen comments**. (I'll abbreviate "bullet screen comments" to "comments" in the following paragraphs.)
 
@@ -28,19 +30,10 @@ We also explore the other two methods for comparing the performances and discuss
 - 最後存入 `processed-data/<movie_name>.json`。
 
 `split.py`
-負責把某部電影經過 `preprocess.js` 處理好的彈幕，也就是 `processed-data/<movie_name>.json`，依照指定的時間間隔（30秒）切割為數個片段，將每個片段中的所有彈幕串成同一列（視為一個 document），片段中若包含任一條 `class` 為 `POS` 的彈幕，則將其寫入 `processed-data/<movie_name>_POS.txt`，反之則寫入 `processed-data/<movie_name>_NEG.txt`。
+- 負責把某部電影經過 `preprocess.js` 處理好的彈幕，也就是 `processed-data/<movie_name>.json`，依照指定的時間間隔（30秒）切割為數個片段，將每個片段中的所有彈幕串成同一列（視為一個 document），片段中若包含任一條 `class` 為 `POS` 的彈幕，則將其寫入 `processed-data/<movie_name>_POS.txt`，反之則寫入 `processed-data/<movie_name>_NEG.txt`。
 
 `merge.py`
-負責將資料處理成訓練詞向量與機器學習模型所需的輸入格式，將所有 `<movie_name>_<label>.txt` 順序打亂後，寫進 `all_POS.txt`, `all_NEG.txt`, `train_POS.txt`, `train_POS.txt`, `test_POS.txt`, `test_POS.txt`。除此之外，還將低頻詞都標準化成 `UNK`，以提升詞向量的品質。
-
-
-## Data Preprocessing
-`preprocess-script/preprocess.js`
-- Cleaning: delete unwanted data attributes and only keep `time` and `content`.
-- Labeling: we took several hours to watch the movies and manually label the interesting clips as our highlights. See `label/<movie_name>.txt`
-- 斷詞：使用jieba對每條彈幕的內容做斷詞、擷取關鍵詞，為了刪掉高頻率又沒有意義的詞，我們只保留關鍵詞的部分當作斷詞的結果，但是要保留詞出現在彈幕內容的次序。
-- 特殊用詞：在彈幕中經常出現 "23333"、"66666"、"哈哈哈哈哈" 等用語，這些事實上都是同義但是不同長度、不同表示法的詞，為了統一，我們將這些詞全部標準化成一個字 "哈"。
-- 切片段：由於是要預測精彩片段，因此必須先將彈幕依照時間排序並將一個片段 (例如：0~30秒) 內的所有彈幕串接起來，另外為了讓時間間隔變得比較 smooth，我們使用 slide window 的概念，讓切割後的片段有部份重疊。
+- 負責將資料處理成訓練詞向量與機器學習模型所需的輸入格式，將所有 `<movie_name>_<label>.txt` 順序打亂後，寫進 `all_POS.txt`, `all_NEG.txt`, `train_POS.txt`, `train_POS.txt`, `test_POS.txt`, `test_POS.txt`。除此之外，還將低頻詞都標準化成 `UNK`，以提升詞向量的品質。
 
 ## Count-Based
 每30秒做間隔，並用slide window的概念，使時間間隔變得比較smooth。
