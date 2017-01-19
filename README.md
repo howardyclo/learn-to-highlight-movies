@@ -19,7 +19,7 @@ We also explore the other two methods for comparing the performances and discuss
 
 ## Datasets
 - **Bullet screen comments**: Steven Chou's famous movies and their corresponding bullet screen comments. See `data/<movie_name>.json`.
-- **Temporal labels**: We took several days to watch the movies and manually label timestamps (start and end) of interesting movie clips as our highlights. See `label/<movie_name>.txt`
+- **Temporal labels**: We took several days to watch the movies and manually labeled timestamps (start and end) of interesting movie clips as our highlights. See `label/<movie_name>.txt`
 
 ## Data Preprocessing
 `preprocess.js`
