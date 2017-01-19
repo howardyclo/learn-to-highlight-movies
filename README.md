@@ -1,4 +1,4 @@
-# [Learn to Highlight Movies](https://signxer.xyz/bilibili/)
+# Learn to Highlight Movies
 
 (Under Construction)
 
