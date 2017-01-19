@@ -2,7 +2,7 @@
 
 (Under Construction)
 
-**Keywords**: `video shots retrieval`, `document classification`, `TF-IDF (solr)`, `word embeddings (Word2Vec)`, `document embeddings (Doc2Vec)`, `neural network (keras)`
+**Keywords**: `video shots retrieval`, `document classification`, `TF-IDF (solr)`, `word embeddings (Word2Vec)`, `document embeddings (Doc2Vec)`, `neural network (Keras)`
 
 Learn-to-Highlight-Movies is a **movie highlights retrieval** project that uses several approaches to automatically highlight movies from [bilibili](https://www.bilibili.com/), which is one of the largest video sharing platforms in China with time-sync comments, also known as **bullet screen comments**. (We'll abbreviate "bullet screen comments" to "comments" in the following paragraphs.)
 
